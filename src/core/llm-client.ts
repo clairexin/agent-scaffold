@@ -90,7 +90,7 @@ export class GeminiClient implements LLMClient {
   ) {}
 
   async complete(messages: LLMMessage[], options: LLMOptions = {}): Promise<LLMResponse> {
-    const model = options.model ?? "gemini-2.5-flash";
+    const model = options.model ?? "gemini-2.5-flash-lite";
     const systemMsg = messages.find((m) => m.role === "system");
     const nonSystemMsgs = messages.filter((m) => m.role !== "system");
 

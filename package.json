@@ -1,13 +1,44 @@
 {
-  "name": "agent-platform",
+  "name": "agent-scaffold-ts",
   "version": "0.1.0",
-  "description": "Agent platform with Planning → Task Lists → Execution → Results Synthesis",
+  "description": "TypeScript framework for LLM-powered multi-agent pipelines with adaptive replanning",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "agent",
+    "llm",
+    "ai",
+    "multi-agent",
+    "orchestrator",
+    "gemini",
+    "openai",
+    "anthropic",
+    "typescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clairexin/agent-scaffold.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "npx tsx examples/basic-run.ts",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },

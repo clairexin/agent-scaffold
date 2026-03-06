@@ -5,7 +5,7 @@
 // Run with: npx tsx examples/basic-run.ts
 //
 // For real usage, set one of these env vars (checked in priority order):
-//   GEMINI_API_KEY      → Google Gemini (gemini-2.5-flash)
+//   GEMINI_API_KEY      → Google Gemini (gemini-2.5-flash-lite)
 //   OPENAI_API_KEY      → OpenAI (gpt-4o-mini)
 //   ANTHROPIC_API_KEY   → Anthropic Claude (claude-sonnet-4-20250514)
 // This example uses the MockLLMClient when no key is present.
@@ -24,7 +24,7 @@ import {
 
 function createClient(): LLMClient {
   if (process.env.GEMINI_API_KEY) {
-    console.log("Using Gemini API (gemini-2.5-flash)");
+    console.log("Using Gemini API (gemini-2.5-flash-lite)");
     return createAutoClient();
   }
 

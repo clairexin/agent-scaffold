@@ -132,20 +132,23 @@ Requires Node.js ≥ 18 (ESM, `fetch` built-in).
 npm run dev
 ```
 
-**Run with a real LLM (auto-selected by priority):**
+**Run with a real LLM:**
+
+Copy `.env.example` to `.env` and fill in your keys:
 
 ```bash
-# 1st priority: Google Gemini (gemini-2.5-flash)
-GEMINI_API_KEY=your-key npm run dev
-
-# 2nd priority: OpenAI (gpt-4o-mini)
-OPENAI_API_KEY=your-key npm run dev
-
-# 3rd priority: Anthropic Claude (claude-sonnet-4-20250514)
-ANTHROPIC_API_KEY=your-key npm run dev
+cp .env.example .env
 ```
 
-The example will write a technical blog post about WebAssembly and print synthesis results and replan history.
+The LLM provider is auto-selected by priority: Gemini → OpenAI → Anthropic → Mock. Tavily is optional — without it, web search falls back to the DuckDuckGo Instant Answer API.
+
+Then run:
+
+```bash
+npm run dev
+```
+
+The example will summarize the three main benefits of TypeScript and print synthesis results and replan history.
 
 ---
 
@@ -225,7 +228,7 @@ All fields are optional. When model names are omitted, each client falls back to
 
 | Priority | Provider | Class | Default Model | Environment Variable |
 |----------|----------|-------|---------------|---------------------|
-| 1 | Google Gemini | `GeminiClient` | `gemini-2.5-flash` | `GEMINI_API_KEY` |
+| 1 | Google Gemini | `GeminiClient` | `gemini-2.5-flash-lite` | `GEMINI_API_KEY` |
 | 2 | OpenAI | `OpenAIClient` | `gpt-4o-mini` | `OPENAI_API_KEY` |
 | 3 | Anthropic Claude | `AnthropicClient` | `claude-sonnet-4-20250514` | `ANTHROPIC_API_KEY` |
 | 4 | Mock (testing) | `MockLLMClient` | — | — |
