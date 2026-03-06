@@ -7,8 +7,8 @@ import {
   Task,
   TaskStatus,
   RunContext,
-  PlatformConfig,
-  PlatformEvent,
+  FrameworkConfig,
+  FrameworkEvent,
   RunId,
   TaskId,
 } from "../types/index.js";
@@ -38,7 +38,7 @@ export interface RunResult {
   totalIterations: number;
 }
 
-const DEFAULT_CONFIG: PlatformConfig = {
+const DEFAULT_CONFIG: FrameworkConfig = {
   maxConcurrency: 5,
   tokenBudget: 100_000,
   defaultMaxRetries: 2,
@@ -56,9 +56,9 @@ export class Orchestrator {
   private synthesizer: Synthesizer;
   private toolRegistry: ToolRegistry;
   public events: EventBus;
-  private config: PlatformConfig;
+  private config: FrameworkConfig;
 
-  constructor(llm: LLMClient, config?: Partial<PlatformConfig>) {
+  constructor(llm: LLMClient, config?: Partial<FrameworkConfig>) {
     this.config = {
       ...DEFAULT_CONFIG,
       ...config,
@@ -362,7 +362,7 @@ export class Orchestrator {
     );
   }
 
-  private emit(event: PlatformEvent): void {
+  private emit(event: FrameworkEvent): void {
     this.events.emit(event);
   }
 }

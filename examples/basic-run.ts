@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// Example Usage — Agent Platform
+// Example Usage — Agent Framework
 // ─────────────────────────────────────────────
 //
 // Run with: npx tsx examples/basic-run.ts

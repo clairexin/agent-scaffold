@@ -1,4 +1,4 @@
-# Agent Platform
+# Agent Framework
 
 > TypeScript framework for LLM-powered multi-agent pipelines with adaptive replanning.
 
@@ -6,7 +6,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-ESM-green?logo=node.js)
 ![Vitest](https://img.shields.io/badge/tested_with-vitest-yellow?logo=vitest)
 
-Agent Platform decomposes a natural language goal into a dependency-aware task graph, executes tasks in parallel with an agentic tool-use loop, evaluates the results, and replans automatically when the goal isn't fully satisfied — all while tracking token usage across every phase.
+Agent Framework decomposes a natural language goal into a dependency-aware task graph, executes tasks in parallel with an agentic tool-use loop, evaluates the results, and replans automatically when the goal isn't fully satisfied — all while tracking token usage across every phase.
 
 ---
 
@@ -70,7 +70,7 @@ Goal (string)
 
 ```
 src/
-  types/index.ts        ← shared types: Task, Plan, RunContext, PlatformEvent, ...
+  types/index.ts        ← shared types: Task, Plan, RunContext, FrameworkEvent, ...
   core/
     orchestrator.ts     ← control plane; exposes run(), manages all 4 phases
     planner.ts          ← goal → JSON task DAG via LLM; validates with DAG utils
@@ -116,7 +116,7 @@ LLM prompt (task + context + available tools)
 
 ```bash
 git clone <repo-url>
-cd agent-platform
+cd agent-framework
 npm install
 ```
 
@@ -323,7 +323,7 @@ npm run test:watch   Watch mode for development
 ## Project Structure
 
 ```
-agent-platform/
+agent-framework/
 ├── src/
 │   ├── types/
 │   │   └── index.ts              Core type definitions

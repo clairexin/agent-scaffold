@@ -2,7 +2,7 @@
 // Executor — Runs Individual Tasks
 // ─────────────────────────────────────────────
 
-import { Task, TaskResult, RunContext, PlatformConfig } from "../types/index.js";
+import { Task, TaskResult, RunContext, FrameworkConfig } from "../types/index.js";
 import { LLMClient } from "./llm-client.js";
 import { ToolRegistry } from "./tool-registry.js";
 
@@ -37,7 +37,7 @@ export class Executor {
   constructor(
     private llm: LLMClient,
     private toolRegistry: ToolRegistry,
-    private config: PlatformConfig
+    private config: FrameworkConfig
   ) {}
 
   /**

@@ -2,7 +2,7 @@
 // Synthesizer — Results Aggregation & Quality Gate
 // ─────────────────────────────────────────────
 
-import { RunContext, PlatformConfig, TaskResult } from "../types/index.js";
+import { RunContext, FrameworkConfig, TaskResult } from "../types/index.js";
 import { LLMClient } from "./llm-client.js";
 
 const SYNTHESIZER_SYSTEM_PROMPT = `You are a synthesis agent. You receive the original goal and results from multiple completed tasks.
@@ -36,7 +36,7 @@ export interface SynthesisResult {
 export class Synthesizer {
   constructor(
     private llm: LLMClient,
-    private config: PlatformConfig
+    private config: FrameworkConfig
   ) {}
 
   /**

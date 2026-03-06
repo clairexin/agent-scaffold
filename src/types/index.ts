@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// Agent Platform — Type Definitions
+// Agent Framework — Type Definitions
 // ─────────────────────────────────────────────
 
 /** Unique identifiers */
@@ -79,8 +79,8 @@ export interface ToolDefinition {
   execute: (params: Record<string, unknown>, ctx: RunContext) => Promise<unknown>;
 }
 
-/** Configuration for the agent platform */
-export interface PlatformConfig {
+/** Configuration for the agent framework */
+export interface FrameworkConfig {
   /** Max tasks to run concurrently */
   maxConcurrency: number;
   /** Total token budget per run */
@@ -103,7 +103,7 @@ export interface PlatformConfig {
 }
 
 /** Events emitted by the orchestrator */
-export type PlatformEvent =
+export type FrameworkEvent =
   | { type: "run:started"; runId: RunId; goal: string }
   | { type: "plan:created"; runId: RunId; plan: Plan }
   | { type: "task:ready"; runId: RunId; taskId: TaskId }
@@ -116,4 +116,4 @@ export type PlatformEvent =
   | { type: "run:completed"; runId: RunId; success: boolean }
   | { type: "replan:triggered"; runId: RunId; reason: string };
 
-export type EventHandler = (event: PlatformEvent) => void;
+export type EventHandler = (event: FrameworkEvent) => void;

@@ -2,14 +2,14 @@
 // Event Emitter — Observability & Hooks
 // ─────────────────────────────────────────────
 
-import { PlatformEvent, EventHandler } from "../types/index.js";
+import { FrameworkEvent, EventHandler } from "../types/index.js";
 
 export class EventBus {
   private handlers: Map<string, EventHandler[]> = new Map();
   private globalHandlers: EventHandler[] = [];
 
   /** Subscribe to a specific event type */
-  on(eventType: PlatformEvent["type"], handler: EventHandler): () => void {
+  on(eventType: FrameworkEvent["type"], handler: EventHandler): () => void {
     if (!this.handlers.has(eventType)) {
       this.handlers.set(eventType, []);
     }
@@ -35,7 +35,7 @@ export class EventBus {
   }
 
   /** Emit an event */
-  emit(event: PlatformEvent): void {
+  emit(event: FrameworkEvent): void {
     // Global handlers first
     for (const handler of this.globalHandlers) {
       try {
@@ -59,7 +59,7 @@ export class EventBus {
 
 /** Pre-built logger handler for observability */
 export function createLogger(verbose = false): EventHandler {
-  return (event: PlatformEvent) => {
+  return (event: FrameworkEvent) => {
     const ts = new Date().toISOString();
     const base = `[${ts}] ${event.type} | run=${event.runId}`;
 

@@ -2,7 +2,7 @@
 // Planner — Goal → Task DAG
 // ─────────────────────────────────────────────
 
-import { Plan, Task, TaskStatus, PlatformConfig, RunId } from "../types/index.js";
+import { Plan, Task, TaskStatus, FrameworkConfig, RunId } from "../types/index.js";
 import { LLMClient } from "./llm-client.js";
 import { ToolRegistry } from "./tool-registry.js";
 import { topologicalSort, validateDAG } from "../utils/dag.js";
@@ -43,7 +43,7 @@ export class Planner {
   constructor(
     private llm: LLMClient,
     private toolRegistry: ToolRegistry,
-    private config: PlatformConfig
+    private config: FrameworkConfig
   ) {}
 
   /**

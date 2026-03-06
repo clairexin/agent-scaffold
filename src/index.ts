@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-// Agent Platform — Public API
+// Agent Framework — Public API
 // ─────────────────────────────────────────────
 
 export { Orchestrator, type RunResult, type ReplanRecord } from "./core/orchestrator.js";
