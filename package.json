@@ -1,0 +1,20 @@
+{
+  "name": "agent-platform",
+  "version": "0.1.0",
+  "description": "Agent platform with Planning → Task Lists → Execution → Results Synthesis",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsx examples/basic-run.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}
